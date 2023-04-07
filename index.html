@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit card</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main class="container">
+      <form id="purchaseForm" action="javascript: void(0);">
+        <section id="creditCard" data-visible="front">
+          <div class="card frontCard">
+            <div class="topCard">
+              <div class="description">
+                <label>monobank</label>
+                <span class="divider vertical"></span>
+                <span>Universal Bank</span>
+              </div>
+              <img src="./icons/share.svg" alt="approximation card"/>
+            </div>
+            <div class="middleCard">
+              <div class="chipCard">
+                <img src="./imgs/chipCard.svg" alt="chip card"/>
+                <span>world</span>
+              </div>
+              <div class="numbersCard">
+                <div id="numberPart1"></div>
+                <div id="numberPart2"></div>
+                <div id="numberPart3"></div>
+                <div id="numberPart4"></div>
+              </div>
+            </div>
+            <div class="bottomCard">
+              <div class="informationCard">
+                <div class="validCard">
+                  <label>VALID<br />THRU</label>
+                  <span id="valid"></span>
+                </div>
+                <div id="nameCard"></div>
+              </div>
+              <div class="flagCard">
+                <img id="imgFlagCard" alt="mastercard flag" />
+              </div>
+            </div>
+          </div>
+          <div class="card backCard">
+            <div class="readingBar"></div>
+            <div class="fullCardData">
+              <div class="informationCard">
+                <div class="title">
+                  <span>Not Valid Unless Signed</span>
+                  <span>Authorized Signature</span>
+                </div>
+                <div class="bar">
+                  <div id="securityCode"></div>
+                </div>
+              </div>
+              <div class="descriptionCard">
+                <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit </label>
+                <text>
+                  Morbi sit amet ipsum risus Interdum et malesuada fames ac ante ipsum 
+                  primis in faucibus. Duis tincidunt tellus non libero varius, 
+                  vitae ultrices purus posuere. Interdum et malesuada fames ac 
+                  ante ipsum primis in faucibus. Pellentesque fermentum tortor in 
+                  hendrerit maximus. Nulla facilisi. Donec sed semper nulla, 
+                  vitae auctor arcu. Mauris risus velit, condimentum quis diam vel, 
+                  viverra suscipit justo.
+                </text>
+              </div>
+            </div>
+            <div class="linkCard">
+              https://github.com/wallasmaciel
+            </div>
+          </div>
+        </section>
+        <div id="elementFieldsForm">
+          <div class="fields">
+            <div>
+              <label for="fieldName">Full Name</label>
+              <input type="text" id="fieldName" name="nameCard" placeholder="Name" 
+                maxlength="80" class="inputTextCustom" required/>
+            </div>
+            <div>
+              <label for="fieldNumber">Credit Card Number</label>
+              <input type="text" id="fieldNumber" name="numberCard" placeholder="Number" 
+                maxlength="19" class="inputTextCustom" required/>
+            </div>
+            <div>
+              <label for="fieldValid">Exp Date</label>
+              <input type="text" id="fieldValid" name="dateCard" placeholder="Valid date"
+                class="inputTextCustom" required/>
+            </div>
+            <div>
+              <label for="fieldCod">CVV</label>
+              <input type="text" id="fieldCod" name="codCard" placeholder="Cod."
+                class="inputTextCustom" required/>
+            </div>
+          </div>
+          <button type="submit" id="btnSubmitCard" class="inputButtonPrimaryCustom">Enviar</button>
+        </div>
+      </form>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>

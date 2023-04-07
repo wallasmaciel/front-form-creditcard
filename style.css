@@ -1,0 +1,341 @@
+:root {
+  --primaryBackgroundCard: #080C17;
+  --primaryTextColorCard: #475569;
+
+  --cyan300: #67e8f9;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter';
+  background-color: #0F172A;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  max-width: 100vw;
+
+  height: 100vh;
+  max-height: 100vh;
+
+  overflow: auto;
+}
+
+.divider.vertical::after {
+  content: "|";
+  font-size: 1.75rem;
+}
+
+/* Card */
+.card {
+  width: 516px;
+  height: 346px;
+
+  border-radius: .75rem;
+  background-color: var(--primaryBackgroundCard);
+  color: var(--primaryTextColorCard);
+}
+
+/* Flip card */
+#creditCard {
+  position: relative;
+  perspective: 1500px;
+}
+
+.card {
+  position: absolute;
+  transition: transform 1s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.card.backCard {
+  transform: rotateY(180deg);
+}
+
+#creditCard[data-visible=front] .frontCard {
+  transform: rotateY(0);
+}
+
+#creditCard[data-visible=back] .frontCard {
+  transform: rotateY(180deg);
+}
+
+#creditCard[data-visible=back] .backCard {
+  transform: rotateY(360deg);
+}
+
+/* Front card */
+.card.frontCard  {
+  display: flex;
+  flex-direction: column;
+  padding:  2em 1.5em .613em 1.5em;
+}
+
+.card.frontCard > .topCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 1.125em;
+}
+
+.card.frontCard > .topCard > img {
+  width: 2.625em;
+  height: 3.375em;
+}
+
+.card.frontCard > .topCard > .description {
+  display: flex;
+  align-items: center;
+  gap: .875em;
+}
+
+.card.frontCard > .topCard > .description > label:nth-child(1) {
+  color: white;
+  font-size: 2.125em;
+  font-weight: 700;
+}
+
+.card.frontCard > .topCard > .description > span:nth-child(3) {
+  font-size: 1.375em;
+  font-weight: 600;
+}
+
+.card.frontCard > .middleCard {
+  flex: 1;
+}
+
+.card.frontCard > .middleCard > .chipCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  
+  padding-bottom: .5em;
+}
+
+.card.frontCard > .middleCard > .chipCard > img {
+  width: 5.125em;
+  height: 2.875em;
+}
+
+.card.frontCard > .middleCard > .chipCard > span {
+  font-size: 1.125em;
+  font-weight: 900;
+  text-align: right;
+
+  padding-right: 1.75em;
+}
+
+.card.frontCard > .middleCard > .numbersCard {
+  display: flex;
+  gap: 1.375em;
+  justify-content: center;
+
+  font-size: 1.425rem;
+  font-weight: 400;
+  letter-spacing: .25em;
+  text-align: center;
+}
+
+.card.frontCard > .bottomCard {
+  display: flex;
+  align-items: center;
+  margin-top: 1.375em;
+}
+
+.card.frontCard > .bottomCard > .informationCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  padding-top: 1.063em;
+}
+
+.card.frontCard > .bottomCard > .informationCard > .validCard {
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  gap: .5em;
+}
+
+.card.frontCard > .bottomCard > .informationCard > .validCard > label {
+  font-size: .563em;
+  font-weight: bold;
+}
+
+.card.frontCard > .bottomCard > .informationCard > .validCard > span {
+  font-size: 1.125em;
+}
+
+.card.frontCard > .bottomCard > .informationCard > #nameCard {
+  font-size: 1.15em;
+  font-weight: 400;
+  letter-spacing: .125em;
+  text-align: center;
+  word-break: break-all;
+}
+
+.card.frontCard > .bottomCard > .flagCard {
+  text-align: right;
+  padding-left: .875em;
+}
+.card.frontCard > .bottomCard > .flagCard > img {
+  display: none;
+  width: 8.125em;
+  height: 4.875em;
+}
+
+/* Back card */
+.card.backCard {
+  padding:  2.5rem 0 .1132rem 0;
+  width: calc(100% + .0008rem);
+  display: flex;
+  flex-direction: column;
+  font-size: .55rem;
+}
+
+.card.backCard > .readingBar {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  background-color: #E5E5E5;
+}
+
+.card.backCard > .fullCardData {
+  flex: 1;
+  margin-left: 1.125rem;
+  margin-right: 1.125rem;
+}
+
+.card.backCard > .fullCardData > .informationCard {
+  padding-top: .75rem;
+  padding-bottom: .688rem;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 70%;
+}
+
+.card.backCard > .fullCardData > .informationCard > .title {
+  padding-bottom: .375rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card.backCard > .fullCardData > .informationCard > .bar {
+  height: 2.5rem;
+  border-radius: .375rem;
+  text-align: right;
+  background-color: white;
+}
+
+.card.backCard > .fullCardData > .informationCard > .bar > #securityCode {
+  padding-top: .375rem;
+  padding-right: .625rem;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.card.backCard > .fullCardData >.descriptionCard {
+  flex: 1;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.card.backCard > .linkCard {
+  text-align: center;
+  margin-bottom: .5rem;
+}
+
+/* Form styles */
+#purchaseForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 54.875rem;
+}
+
+@media screen and (max-width: 830px) {
+  #purchaseForm { 
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#purchaseForm > #elementFieldsForm {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: .8rem;
+
+  margin: 10px 20px;
+}
+
+#purchaseForm > #elementFieldsForm > .fields {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+#purchaseForm > #elementFieldsForm > .fields > div {
+  color: var(--primaryTextColorCard);
+  font-weight: 600;
+  font-size: .8rem;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.inputTextCustom {
+  color: #fff;
+  padding: .8rem;
+  outline: none;
+  border: none;
+  border-radius: .45rem;
+  background-color: #202024;
+}
+
+.inputTextCustom:focus {
+  box-shadow: 0 0 0 1.7px var(--cyan300) inset;
+}
+
+.inputButtonPrimaryCustom {
+  color: #fff;
+  font-weight: 700;
+
+  padding: .8rem;
+  cursor: pointer;
+  background: #1967d2;
+
+  border: none;
+  border-radius: .45rem;
+}
+
+.inputButtonPrimaryCustom:hover {
+  opacity: .87;
+}
